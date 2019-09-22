@@ -118,7 +118,7 @@ I provided 4 examples of sudoku puzzle in the home folder
 4- hard_sudoku.txt 
 
 
-<h3>5- Contact Information</h3>
+<h3>5- Information</h3>
 <b>Author:</b> Joel Mandebi <br>
 Ph.D. Student in Computer Engineering - University of Florida <br>
 <b>Date:</b> Sept 22, 2019
