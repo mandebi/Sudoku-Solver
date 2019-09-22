@@ -75,9 +75,9 @@ Boolean variables are labelled xijk, such that xijk is true if cell(i,j) contain
       - or(xi1k,xi2k,...xi9k): ensures that each digit {1,2,...9} appear in every row i.
       - or( not(xijk),not(ilk)): ensures that a digit appears only once.
     
-      <figure>
-        <img src="appearOnce_perRow.png" height="100" width="450" align="center">
-        <figcaption>Fig3. Condition Ensuring that each digit 'k' appears exactly once per row</figcaption>
+   <figure>
+        <img src="images/appearOnce_perRow.png" height="50" width="450" align="center">
+        <figcaption>Fig4. Condition Ensuring that each digit 'k' appears exactly once per row</figcaption>
      </figure> <br>
   
 
