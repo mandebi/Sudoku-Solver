@@ -64,6 +64,10 @@ Boolean variables are labelled xijk, such that xijk is true if cell(i,j) contain
       - or(xij1,xij2,...xij9): ensures that each cell(i,j) will at least receive a digit {1,2,...9}
       - or( not(xijk),not(ijl)) ensures that no other digit can be place in the cell
 
+     <figure>
+        <img src="imagesoneCell_oneDigit.png" height="100" width="450" align="center">
+        <figcaption>Fig3. Condition Ensuring that each cell will be filled and only contain one digit</figcaption>
+     </figure> <br>
 
   (3)- Each digit must appear exactly once in each row  
   Lik=(and(or(xi1k,xi2k,...xi9k),or( not(xijk),not(ilk) ) ) ) with i,j,k,l in {1,2,...,9} and j!=l
