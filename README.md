@@ -73,7 +73,12 @@ Boolean variables are labelled xijk, such that xijk is true if cell(i,j) contain
   Lik=(and(or(xi1k,xi2k,...xi9k),or( not(xijk),not(ilk) ) ) ) with i,j,k,l in {1,2,...,9} and j!=l
       - or(xi1k,xi2k,...xi9k): ensures that each digit {1,2,...9} appear in every row i.
       - or( not(xijk),not(ilk)): ensures that a digit appears only once.
-
+    
+      <figure>
+        <img src="appearOnce_perRow.png" height="100" width="450" align="center">
+        <figcaption>Fig3. Condition Ensuring that each digit 'k' appears exactly once per row</figcaption>
+     </figure> <br>
+  
 
   (4)- Each digit must appear exactly once in each column 
   Ljk=(and(or(x1jk,x2jk,...x9jk),or( not(xijk),not(ljk) ) ) ) with i,j,k,l in {1,2,...,9} and i!=l
