@@ -21,6 +21,7 @@ In order to provide a sudoku puzzle to our solver, we adopt the following repres
   <li> Digit 0 represents empty cells</li> 
 </ul>	
 In both solving approaches (backtracking and SMT solver), we start by making sure that the initial configuration is correct (we don't have a digit appearing more than once on any row, column, and square. The adopted representation allows storing puzzles to solve into text file that are provided to the solvers. The following image depicts how the previous sudoku is represented in a text-file convenient way:
+
 <figure>
   <img src="images/representation.png" height="250" width="250" align="center">
   <figcaption>Fig2. Example of Puzzle formatted in a text file </figcaption>
@@ -64,8 +65,8 @@ Boolean variables are labelled xijk, such that xijk is true if cell(i,j) contain
       - or(xij1,xij2,...xij9): ensures that each cell(i,j) will at least receive a digit {1,2,...9}
       - or( not(xijk),not(ijl)) ensures that no other digit can be place in the cell
 
-     <figure>
-        <img src="imagesoneCell_oneDigit.png" height="100" width="450" align="center">
+  <figure>
+        <img src="images/oneCell_oneDigit.png" height="50" width="450" align="center">
         <figcaption>Fig3. Condition Ensuring that each cell will be filled and only contain one digit</figcaption>
      </figure> <br>
 
