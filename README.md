@@ -58,20 +58,20 @@ Boolean variables are labelled xijk, such that xijk is true if cell(i,j) contain
            Z3_mk_eq (ctx, variables[i][j][k], true_node);
            constraints[constraint_counter] = Z3_mk_eq (ctx, variables[i][j][k], true_node);
            constraint_counter ++;
-
+  <br>
   (2)- Each cell must be assigned one and only one value:
-  Lij=(and(or(xij1,xij2,...xij9),or( not(xijk),not(ijl) ) ) ) with i,j,k,l in {1,2,...,9} and k!=l     
-
-      - or(xij1,xij2,...xij9): ensures that each cell(i,j) will at least receive a digit {1,2,...9}
-      - or( not(xijk),not(ijl)) ensures that no other digit can be place in the cell
-
+  (and(or(xij1,xij2,...xij9),or( not(xijk),not(ijl) ) ) ) with i,j,k,l in {1,2,...,9} and k!=l     
+    <ul>
+      <li> or(xij1,xij2,...xij9): ensures that each cell(i,j) will at least receive a digit {1,2,...9}</li>
+      <li> or( not(xijk),not(ijl)) ensures that no other digit can be place in the cell</li>
+    </ul>
   <figure>
         <img src="images/oneCell_oneDigit.png" height="50" width="450" align="center">
         <figcaption>Fig3. Condition Ensuring that each cell will be filled and only contain one digit</figcaption>
      </figure> <br>
 
-  (3)- Each digit must appear exactly once in each row  
-  Lik=(and(or(xi1k,xi2k,...xi9k),or( not(xijk),not(ilk) ) ) ) with i,j,k,l in {1,2,...,9} and j!=l
+  (3)- Each digit must appear exactly once in each row:
+  (and(or(xi1k,xi2k,...xi9k),or( not(xijk),not(ilk) ) ) ) with i,j,k,l in {1,2,...,9} and j!=l
       - or(xi1k,xi2k,...xi9k): ensures that each digit {1,2,...9} appear in every row i.
       - or( not(xijk),not(ilk)): ensures that a digit appears only once.
     
@@ -82,13 +82,29 @@ Boolean variables are labelled xijk, such that xijk is true if cell(i,j) contain
   
 
   (4)- Each digit must appear exactly once in each column 
-  Ljk=(and(or(x1jk,x2jk,...x9jk),or( not(xijk),not(ljk) ) ) ) with i,j,k,l in {1,2,...,9} and i!=l
-      - or(x1jk,x2jk,...x9jk): ensures that each digit {1,2,...9} appear in every column j.
-      - or( not(xijk),not(ljk))): ensures that a digit appears only once.
-
+  (and(or(x1jk,x2jk,...x9jk),or( not(xijk),not(ljk) ) ) ) with i,j,k,l in {1,2,...,9} and i!=l
+      <ul> 
+       <li> or(x1jk,x2jk,...x9jk): ensures that each digit {1,2,...9} appear in every column j.</li>
+       <li> or( not(xijk),not(ljk))): ensures that a digit appears only once.</li>
+      </ul>
+    
+    <figure>
+        <img src="images/appearOnce_perColumn.png" height="50" width="450" align="center">
+        <figcaption>Fig5. Condition Ensuring that each digit 'k' appears exactly once per column</figcaption>
+     </figure> 
+    <br>
 
   (5)- Each digit must appear in each 3x3 square (consequently, the same digit cannot appear more than one time because there is 9 digits for 9 cells)  
       Lijk= (and(or(xij1,xij2,...,xij9))) where i=3U+I: U={0..2}, I={1,..,3};j=3V+J: V={0..2}, J={1,..,3}. This is just a way to go square by square
+
+    <figure>
+        <img src="images/appearOnce_perSquare.png" height="50" width="450" align="center">
+        <figcaption>Fig6. Condition Ensuring that each digit 'k' appears exactly once per square</figcaption>
+     </figure> <br>
+    <br>
+    
+  
+
 
  If we cannot find a digit assignment that keeps the puzzle valid, then we conclude that the puzzle does not have a valid solution.
 
@@ -97,18 +113,19 @@ Boolean variables are labelled xijk, such that xijk is true if cell(i,j) contain
 <h4>4.1 Compilation Command (using GCC: I tested on Ubuntu 18.04)</h4> 
 gcc -o output_executable -Wall main.c utilities.c libz3.so -lpthread -w
 
-I also provided a "compile.sh" file that just need to be executed in a Linux environment (Allocate execution rights: chmod +x compile.sh)
-UTILIZATION:
+I also provided a "compile.sh" file that just need to be executed in a Linux environment (Allocate execution rights: chmod +x compile.sh)<br>
+<u>UTILIZATION:</u>
     ./compile.sh output_executable main.c
   example:     
     ./compile.sh output main.c
 
 <h4>4.2 Execution Command (from the command line interface)</h4> 
-/output_executable ./../hard_sudoku.txt
+./output_executable ./../hard_sudoku.txt
 
 
 <u>Note:</u>
-The program create a text log file on the project folder, so please make sure to grant project's folder modification rights to the executable of the program.
+The program create a text log file on the project folder (SMT-Solver/model.txt), so please make sure to grant project's folder modification rights to the executable of the program. The model.txt file also
+shows a satisfiable assignment which correspond to a solution to a given sudoku puzzle.
 
 I provided 4 examples of sudoku puzzle in the home folder
 
