@@ -88,7 +88,7 @@ Boolean variables are labelled xijk, such that xijk is true if cell(i,j) contain
        <li> or( not(xijk),not(ljk))): ensures that a digit appears only once.</li>
       </ul>
     
-    <figure>
+   <figure>
         <img src="images/appearOnce_perColumn.png" height="50" width="450" align="center">
         <figcaption>Fig5. Condition Ensuring that each digit 'k' appears exactly once per column</figcaption>
      </figure> 
@@ -97,8 +97,8 @@ Boolean variables are labelled xijk, such that xijk is true if cell(i,j) contain
   (5)- Each digit must appear in each 3x3 square (consequently, the same digit cannot appear more than one time because there is 9 digits for 9 cells)  
       Lijk= (and(or(xij1,xij2,...,xij9))) where i=3U+I: U={0..2}, I={1,..,3};j=3V+J: V={0..2}, J={1,..,3}. This is just a way to go square by square
 
-    <figure>
-        <img src="images/appearOnce_perSquare.png" height="50" width="450" align="center">
+   <figure>
+        <img src="images/appearOnce_perSquare.png" height="70" width="250" align="center">
         <figcaption>Fig6. Condition Ensuring that each digit 'k' appears exactly once per square</figcaption>
      </figure> <br>
     <br>
@@ -114,7 +114,7 @@ Boolean variables are labelled xijk, such that xijk is true if cell(i,j) contain
 gcc -o output_executable -Wall main.c utilities.c libz3.so -lpthread -w
 
 I also provided a "compile.sh" file that just need to be executed in a Linux environment (Allocate execution rights: chmod +x compile.sh)<br>
-<u>UTILIZATION:</u>
+<u><b>UTILIZATION:</b></u><br>
     ./compile.sh output_executable main.c
   example:     
     ./compile.sh output main.c
