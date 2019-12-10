@@ -48,7 +48,7 @@ gcc -o output_executable -Wall main.c backtracking.c
 <h4> Description</h4>
 The source codes can be found in the folder /SMT-Solver. The program solves the sudoku problem with Z3 (https://github.com/Z3Prover/z3) using propositional logic. <b>We use the C API of Z3</b>.The first step consists in downloading and building Z3 (the steps are described here: https://github.com/Z3Prover/z3). The overall utilization flow of SMT solvers consists in defining a set of rules or contraints that a solution must meet. The solver will then uses a set of algorithm to find a satisfiable assignment of values to the different variables of the problem. If it finds a such assignment, the solver returns "satisfiable" and displays the satisfying assignment. If it can't find a satisfying assignment of variable, it returns "unsatisfiable" to say that all the constraints stated lead to a contradiction: it is not possible to have a solution with such constraints. Otherwise, the solver might return "I don't know" to say that it is not capable of saying with certainty if there is a possible solution or no. In the context of our sudoku problem, we declare a set of boolean variables and 5 constraints.
 
-Boolean variables are labelled xijk, such that xijk is true if cell(i,j) contains the digit k on the sudoku puzzle. We therefore have 9*9*9=729 variables. Our 5 constraints are:
+Boolean variables are labelled xijk, such that xijk is true if cell(i,j) contains the digit k on the sudoku puzzle. We therefore have 9\*9\*9=729 variables. Our 5 constraints are:
 
   (1)- In the initial setup, as loaded from the text file, if a digit k is already in cell(i,j), then a requirement passed to the solver is that:
          xijk = true.
